@@ -5,7 +5,7 @@ using namespace std;
 
 enum enPrime_NotPrime { Prime = 1, NotPrime = 2 };
 
-int ReadPositiveNumbers(string Message) 
+int ReadPositiveNumbers(string Message)
 {
 	int Number = 0;
 
@@ -15,7 +15,7 @@ int ReadPositiveNumbers(string Message)
 	return Number;
 }
 
-enPrime_NotPrime CheckNumberType(int Number) 
+enPrime_NotPrime CheckNumberType(int Number)
 {
 	int M = round(Number / 2);
 
@@ -29,20 +29,20 @@ enPrime_NotPrime CheckNumberType(int Number)
 	return enPrime_NotPrime::Prime;
 }
 
-void PrintNumberType(int Number) 
+void PrintPrimeNumbersInRange(int Number)
 {
-	if (CheckNumberType(Number)==enPrime_NotPrime::Prime)
+	for (int Counter = 1; Counter <= Number; Counter++)
 	{
-		cout << Number << " is \"prime\"" << endl;
+
+	if (CheckNumberType(Counter) == enPrime_NotPrime::Prime)
+	{
+		cout << Counter << endl;
 	}
-	else
-	{
-		cout << Number << " is \"not prime\"" << endl;
 	}
 }
 
-int main() 
+int main()
 {
-	PrintNumberType(ReadPositiveNumbers("Plese enter a positive number: "));
+	PrintPrimeNumbersInRange(ReadPositiveNumbers("Plese enter a positive number: "));
 	return 0;
 }
