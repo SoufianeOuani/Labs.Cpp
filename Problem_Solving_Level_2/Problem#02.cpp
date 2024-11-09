@@ -8,10 +8,11 @@ enum enPrime_NotPrime { Prime = 1, NotPrime = 2 }; //We used enums to choose bet
 int ReadPositiveNumbers(string Message)
 { //This function is to read only the positive numbers.
 	int Number = 0;
-
-	cout << Message << endl;
-	cin >> Number;
-
+	do
+	{
+		cout << Message << endl;
+		cin >> Number;
+	}while(Number < 0);
 	return Number;
 }
 
