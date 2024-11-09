@@ -7,10 +7,11 @@ using namespace std;
 int ReadPositiveNumbers(string Message)
 { //This Function is to read only positive numbers.
 	int Number = 0;
-
-	cout << Message << endl;
-	cin >> Number;
-
+	do
+	{
+		cout << Message << endl;
+		cin >> Number;
+	}while(Number < 0);
 	return Number;
 }
 
