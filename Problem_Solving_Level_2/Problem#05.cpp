@@ -27,7 +27,6 @@ void PrintDigits(int Number)
 		
 		cout << Remainder;
 	}
-		cout << Number << " Reversed = " << Remainder;
 }
 
 int main() 
