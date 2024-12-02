@@ -14,7 +14,7 @@ int ReadPositiveNumbers(string Message)
 	}while(Number < 0);
 	return Number;
 }
-
+ 
 bool isPerfectNumber(int Number)
 {// This function is to check if the number is perfect or not. 
 	int Sum = 0;
