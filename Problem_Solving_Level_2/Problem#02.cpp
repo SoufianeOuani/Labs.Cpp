@@ -15,7 +15,7 @@ int ReadPositiveNumbers(string Message)
 	}while(Number < 0);
 	return Number;
 }
-
+ 
 enPrime_NotPrime CheckNumberType(int Number)
 { //This Function is from the enum type and it's for checking number type and return it.
 	int M = round(Number / 2);
