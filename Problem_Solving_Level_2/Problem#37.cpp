@@ -1,87 +1,70 @@
 #include <iostream>
 #include <cstdlib>
-using namespace std;
+using namespace std; 
 
-enum enOdd_Even { Odd = 1, Even = 2 };
-
-enOdd_Even  CheckNumberType(int Number) 
+int RandomNumber(int From, int To)
 {
-	//This function is to check if the number Odd/Even.
+	//Function to generate a random number
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;
+} 
 
-	if (Number%2==0)
+void FillArrayWithRandomNumbers(int arr[100], int& arrLength)
+{
+	//This function is to fill array with random numbers.
+
+	cout << "\nEnter number of elements:\n";
+	cin >> arrLength;
+
+	for (int i = 0; i < arrLength; i++)
 	{
-		return enOdd_Even::Even;
-	}
-	return enOdd_Even::Odd;
-}
-
-int RandomNumbersGenerator(int From, int To) 
-{
-	//This function is to generate random numbers.
-
-	int randNumber = rand() % (To - From + 1) + From;
-	return randNumber;
-}
-
-void FillArrayWithRandomNumbers(int Arr[100], int &ArrLength) 
-{
-	//This function is to fill the array with random numbers.
-
-	cout << "How many elements: ";
-	cin >> ArrLength;
-
-	for (int  i = 0; i < ArrLength; i++)
-	{
-		Arr[i] = RandomNumbersGenerator(1, 100);
+		arr[i] = RandomNumber(1, 100);
 	}
 	cout << endl;
 }
 
-void CopyOddNumbers(int ArrSource[100], int ArrDestinatio[100], int ArrLength, int& Arr2Length) 
+void PrintArray(int arr[100], int arrLength)
 {
-	//This function is to copy Odd numbers from ArrSource to ArrDestination.
-
-	int Counter = 0;
-
-	for (int i = 0; i < ArrLength; i++)
-	{
-		if (CheckNumberType(ArrSource[i]) == enOdd_Even::Odd)
-		{
-			ArrDestinatio[Counter] = ArrSource[i]; //If the number from arrSource is Odd, copy it to the ArrDestination
-			Counter++;
-		}
-	}
-	cout << endl;
-	Arr2Length = Counter;
+	for (int i = 0; i < arrLength; i++)
+		cout << arr[i] << " ";
+	cout << "\n";
 }
 
-void PrintArrayelements(int Arr[100], int ArrLength) 
+void AddArrayElement(int Number, int arr[100], int& arrLength)
 {
-	//This function is to print array elements.
+	//its a new element so we need to add the length by 1
 
-	for (int  i = 0; i < ArrLength; i++)
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+
+void CopyArrayUsingAddArrayElement(int arrSource[100], int arrDestination[100], int arrLength, int& arrDestinationLength)
+{
+	//This function is to copy the array using 'AddArrayElements'.
+
+	for (int i = 0; i < arrLength; i++)
 	{
-		cout << Arr[i] << " ";
+		AddArrayElement(arrSource[i], arrDestination,arrDestinationLength);
 	}
-	cout << endl;
 }
 
 int main() 
-{
+
+	//Seeds the random number generator in C++, called only once
 	srand((unsigned)time(NULL));
 
-	int Arr[100], ArrLength;
+	int arr[100], arrLength = 0, arr2Length = 0;
 
-	FillArrayWithRandomNumbers(Arr, ArrLength);
+	FillArrayWithRandomNumbers(arr, arrLength);
 
-	int Arr2[100], Arr2Length;
-	CopyOddNumbers(Arr, Arr2, ArrLength, Arr2Length); 
+	int arr2[100];
+	CopyArrayUsingAddArrayElement(arr, arr2, arrLength, arr2Length);
 
-	cout << "Array 1 elements: ";
-	PrintArrayelements(Arr, ArrLength);
-	
-	cout << "\nOdd numbers in the Array: ";
-	PrintArrayelements(Arr2, Arr2Length);
+	cout << "\nArray 1 elements:\n";
+	PrintArray(arr, arrLength);
+
+	cout << "\nArray 2 elements after copy:\n";
+	PrintArray(arr2, arr2Length);
 
 	return 0;
 }
