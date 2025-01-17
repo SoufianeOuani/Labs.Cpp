@@ -14,7 +14,7 @@ double ReadPositiveNumbers(string Message)
 
 	} while (Number <= 0);
 
-	return Number;
+	return Number; 
 }
 
 bool isPerfectNumber(int Number) 

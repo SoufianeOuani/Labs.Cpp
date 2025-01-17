@@ -12,7 +12,7 @@ int ReadPositiveNumbers(string Message)
 		cin >> Number;
 
 	} while (Number <= 0);
-
+ 
 	return Number;
 }
 
@@ -27,7 +27,6 @@ void PrintDigits(int Number)
 		
 		cout << Remainder;
 	}
-		cout << Number << " Reversed = " << Remainder;
 }
 
 int main() 

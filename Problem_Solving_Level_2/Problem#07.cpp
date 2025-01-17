@@ -13,7 +13,7 @@ int ReadPositiveNumbers(string Message)
 		cin >> Number;
 
 	} while (Number < 0);
-
+ 
 	return Number;
 }
 
