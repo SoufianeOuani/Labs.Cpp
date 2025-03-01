@@ -64,8 +64,8 @@ short FindNumberPositionInArray(int Arr[100], int ArrLength, int NumberToCheck)
 
 bool IsNumberInArray(int Arr[100], int ArrLength, int NumberToCheck)
 {
-    /*This function is to return true if the number is found at the array
-    otherwise will return false
+    /*This function is to return true if the number is found in the array
+    otherwise will return false.
     */
     return FindNumberPositionInArray(Arr, ArrLength, NumberToCheck) != -1;
 }
